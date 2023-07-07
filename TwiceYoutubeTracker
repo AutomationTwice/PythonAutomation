@@ -3,7 +3,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
 import datetime
 
-CREDENTIALS_FILE = 'C:/Users/Shubhanshu/Desktop/python code/credentials/credentialsfile.json'  # Replace with the path to your JSON credential file
+CREDENTIALS_FILE = '/etc/secrets/credentialsfile.json'  # Replace with the path to your JSON credential file
 SPREADSHEET_ID = '1Oq4BG3EWmm3n0w4PiRJdPnNJCZeAbxgsV-LklArSYKM'
 api_key = 'AIzaSyD-e60nOQwX4yUeA-YoEs89DL59PMV1uhY'
 
