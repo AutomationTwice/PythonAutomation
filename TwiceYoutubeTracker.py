@@ -18,7 +18,6 @@ CREDENTIALS_DATA = {
   "universe_domain": "googleapis.com"
 }
 
-
 SPREADSHEET_ID = '1Oq4BG3EWmm3n0w4PiRJdPnNJCZeAbxgsV-LklArSYKM'
 api_key = 'AIzaSyD-e60nOQwX4yUeA-YoEs89DL59PMV1uhY'
 
@@ -35,7 +34,6 @@ worksheet = spreadsheet.sheet1
 
 # Get the video IDs from the spreadsheet
 video_ids = worksheet.row_values(3)[1:]
-#print(video_ids)
 
 # Define a function to get the YouTube view count for a video ID
 def get_view_count(video_ids):
