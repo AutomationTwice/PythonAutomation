@@ -3,6 +3,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
 import datetime
 import sys
+import pytz
 
 CREDENTIALS_DATA = {
   "type": "service_account",
@@ -17,6 +18,7 @@ CREDENTIALS_DATA = {
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/python-automation%40python-automation-391415.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
+
 
 SPREADSHEET_ID = '1Oq4BG3EWmm3n0w4PiRJdPnNJCZeAbxgsV-LklArSYKM'
 api_key = 'AIzaSyD-e60nOQwX4yUeA-YoEs89DL59PMV1uhY'
@@ -34,6 +36,7 @@ worksheet = spreadsheet.sheet1
 
 # Get the video IDs from the spreadsheet
 video_ids = worksheet.row_values(3)[1:]
+#print(video_ids)
 
 # Define a function to get the YouTube view count for a video ID
 def get_view_count(video_ids):
@@ -47,8 +50,9 @@ def get_view_count(video_ids):
     else:
         return None
 
-# Get the current date
-current_date = datetime.datetime.now().strftime('%Y-%m-%d')
+# Get the current date and time in Indian timezone
+indian_timezone = pytz.timezone('Asia/Kolkata')
+current_date = datetime.datetime.now(indian_timezone).strftime('%Y-%m-%d %H:%M:%S')
 
 # Find the next available row
 next_row = len(worksheet.get_all_values()) + 1
